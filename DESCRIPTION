@@ -1,9 +1,10 @@
 Package: EstacionesMeteorologicas
-Title: What the Package Does (One Line, Title Case)
+Title: Paquete Meteorologico Parcial Programacion II
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+    person("Inés", "Galdeano", "igaldeano@mail.austral.edu.ar", role = "aut")
+    person("Maite", "Gomez Garín", "maitegomezgarin@gmail.com", role = "cre")
+Description: Este paquete carga datos de distintas estaciones meteorologicas, los analiza, resume, y presenta mediante funciones. Los datos de las estaciones provienen del Institulo Nacional de Tecnología Agropecuaria (INTA).
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
