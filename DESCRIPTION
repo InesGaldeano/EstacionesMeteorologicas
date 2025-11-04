@@ -2,8 +2,14 @@ Package: EstacionesMeteorologicas
 Title: Paquete Meteorologico Parcial Programacion II
 Version: 0.0.0.9000
 Authors@R: 
-    person("Inés", "Galdeano", "igaldeano@mail.austral.edu.ar", role = "aut")
-    person("Maite", "Gomez Garín", "maitegomezgarin@gmail.com", role = "cre")
+    c(
+      person(given = "Inés", family = "Galdeano", 
+             email = "igaldeano@mail.austral.edu.ar", 
+             role = "aut"),
+      person(given = "Maite", family = "Gomez Garín", 
+             email = "maitegomezgarin@gmail.com", 
+             role = c("aut", "cre"))
+    )
 Description: Este paquete carga datos de distintas estaciones meteorologicas, los analiza, resume, y presenta mediante funciones. Los datos de las estaciones provienen del Institulo Nacional de Tecnología Agropecuaria (INTA).
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
@@ -15,3 +21,7 @@ BugReports: https://github.com/InesGaldeano/EstacionesMeteorologicas/issues
 Depends: 
     R (>= 3.5)
 LazyData: true
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
