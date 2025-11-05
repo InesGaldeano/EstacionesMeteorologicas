@@ -3,7 +3,7 @@ pkgdown: 2.1.3
 pkgdown_sha: ~
 articles:
   vi-etas: vi-etas.html
-last_built: 2025-11-05T12:11Z
+last_built: 2025-11-05T22:02Z
 urls:
   reference: https://inesgaldeano.github.io/EstacionesMeteorologicas/reference
   article: https://inesgaldeano.github.io/EstacionesMeteorologicas/articles

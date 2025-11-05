@@ -90,8 +90,10 @@ los datos meteorológicos de una estación del INTA.</p>
 <p>Descargar y leer los datos de la estación NH0472</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">estacion1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/descargar_leer_estaciones.html">descargar_leer_estaciones</a></span><span class="op">(</span><span class="st">"NH0472"</span>, <span class="st">"../estacionNH0472.csv"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> El archivo ya existía en ../estacionNH0472.csv.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Leyendo datos de la estación NH0472</span></span>
+<span><span class="co">#&gt; → Se descargaron datos de la estacion NH0472</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Se guardaron en ../estacionNH0472.csv.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Descarga completa.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Leyendo datos desde ../estacionNH0472.csv...</span></span>
 <span><span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">20425</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">35</span></span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span></span>
 <span><span class="co">#&gt; <span style="font-weight: bold;">Delimiter:</span> ","</span></span>
@@ -143,8 +145,8 @@ estaciones.</p>
 <p>Descargar los datos de tres estaciones distintas</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">est1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/descargar_leer_estaciones.html">descargar_leer_estaciones</a></span><span class="op">(</span><span class="st">"NH0472"</span>, <span class="st">"../estacionNH0472.csv"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> El archivo ya existía en ../estacionNH0472.csv.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Leyendo datos de la estación NH0472</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> El archivo ya existia en ../estacionNH0472.csv.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Leyendo datos de la estacion NH0472</span></span>
 <span><span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">20425</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">35</span></span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span></span>
 <span><span class="co">#&gt; <span style="font-weight: bold;">Delimiter:</span> ","</span></span>
@@ -156,8 +158,10 @@ estaciones.</p>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
 <span><span class="va">est2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/descargar_leer_estaciones.html">descargar_leer_estaciones</a></span><span class="op">(</span><span class="st">"NH0910"</span>, <span class="st">"../estacionNH0910.csv"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> El archivo ya existía en ../estacionNH0910.csv.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Leyendo datos de la estación NH0910</span></span>
+<span><span class="co">#&gt; → Se descargaron datos de la estacion NH0910</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Se guardaron en ../estacionNH0910.csv.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Descarga completa.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Leyendo datos desde ../estacionNH0910.csv...</span></span>
 <span><span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">15553</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">35</span></span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span></span>
 <span><span class="co">#&gt; <span style="font-weight: bold;">Delimiter:</span> ","</span></span>
@@ -169,8 +173,10 @@ estaciones.</p>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
 <span><span class="va">est3</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/descargar_leer_estaciones.html">descargar_leer_estaciones</a></span><span class="op">(</span><span class="st">"NH0046"</span>, <span class="st">"../estacionNH0046.csv"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> El archivo ya existía en ../estacionNH0046.csv.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Leyendo datos de la estación NH0046</span></span>
+<span><span class="co">#&gt; → Se descargaron datos de la estacion NH0046</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Se guardaron en ../estacionNH0046.csv.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Descarga completa.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Leyendo datos desde ../estacionNH0046.csv...</span></span>
 <span><span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">17041</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">35</span></span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span></span>
 <span><span class="co">#&gt; <span style="font-weight: bold;">Delimiter:</span> ","</span></span>
