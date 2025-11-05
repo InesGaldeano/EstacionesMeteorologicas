@@ -16,13 +16,13 @@
 #' @export
 #'
 #' @examples
-#' grafico_temperatura_mensual(etaciones, c('red', 'blue'), "Grafico temperatura mensual por estacion")
+#' grafico_temperatura_mensual(estaciones, c('red', 'blue'), "Grafico temperatura mensual por estacion")
 grafico_temperatura_mensual <- function(estaciones,
                                         colores,
                                         titulo = "Temperatura") {
 
   if (!is.data.frame(estaciones)) {
-    stop("El argumento estacion debe ser un data frame o tibble con datos de estaciones.")
+    stop("El argumento estaciones debe ser un data frame o tibble con datos de estaciones.")
   }
 
   #Calcular promedio mensual de la temperatura de abrigo por estación

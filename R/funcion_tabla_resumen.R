@@ -8,10 +8,10 @@
 #' @export
 #'
 #' @examples
-#' tabla_resumen_temperatura(estacion1)
+#' tabla_resumen_temperatura(estacionNH0472)
 tabla_resumen_temperatura <- function(estacion) {
   if (!is.data.frame(estacion)) {
-    stop("El argumento datos_estaciones debe ser un data.frame o tibble con los datos de las estaciones.")
+    stop("El argumento estacion debe ser un data.frame o tibble con los datos de las estaciones.")
   }
   # Resumen
   resumen <- estacion |>
