@@ -5,3 +5,6 @@
 ^docs$
 ^pkgdown$
 ^\.github$
+^data_raw$
+^data_raw/.*
+
