@@ -16,10 +16,12 @@ knitr::opts_chunk$set(
 # EstacionesMeteorologicas
 
 <!-- badges: start -->
+
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+
 <!-- badges: end -->
 
-El objetivo de este paquete es analizar datos de estaciones meteorologicas, resumiendo y presentadolos. 
+El objetivo de este paquete es analizar datos de estaciones meteorologicas, resumiendo y presentadolos.
 
 ## Instalación
 
@@ -30,22 +32,60 @@ Podes instalar el paquete en [GitHub](https://github.com/) con:
 pak::pak("InesGaldeano/EstacionesMeteorologicas")
 ```
 
-## Ejemplos de uso
+## Carga paquete
 
-Ejemplo de carga del paquete:
+Se debe cargar el paquete con el siguente código.
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
+```{r}
+library(EstacionesMeteorologicas)
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
+## Funciones principales 
 
-You can also embed plots, for example:
+El paquete incluye tres funciones principales:
 
-```{r pressure, echo = FALSE}
-plot(pressure)
+descargar_leer_estaciones() Descarga y lee los datos meteorológicos de una estación específica del INTA.
+
+```{r}
+ estacion1 <- descargar_leer_estaciones("NH0472", "../estacionNH0472.csv")
 ```
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+tabla_resumen_temperatura() Crea una tabla resumen con estadísticas básicas de temperatura (promedio, desvío, máximos y mínimos).
+
+```{r}
+tabla_resumen_temperatura(estacion1)
+```
+
+grafico_temperatura_mensual() Genera un gráfico de líneas con la temperatura promedio mensual de una o varias estaciones.
+
+```{r}
+grafico_temperatura_mensual(estacion1, c("blue"), "Temperatura promedio mensual")
+```
+
+## Ejemplo de uso completo 
+
+**Descargar datos de varias estaciones**
+
+```{r}
+est1 <- descargar_leer_estaciones("NH0472", "../estacionNH0472.csv") est2 <- descargar_leer_estaciones("NH0910", "../estacionNH0910.csv")
+```
+
+**Combinar y resumir**
+
+```{r}
+todas <- dplyr::bind_rows(est1, est2) tabla_resumen_temperatura(todas)
+```
+
+**Graficar**
+
+```{r}
+grafico_temperatura_mensual(todas, c("red", "blue"), "Comparación de estaciones")
+```
+
+## Créditos 
+
+Datos meteorológicos obtenidos del Instituto Nacional de Tecnología Agropecuaria (INTA) – Sistema de Información y Gestión Agropecuaria (SIGA).
+
+# Autores del paquete: Inés Galdeano y Maite Gómez Garín.
+
+## 
