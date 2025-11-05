@@ -18,5 +18,6 @@ Un conjunto de datos
 Esta funcion sirve para descagar y leer datos de las estaciones meteorologicas que contiene el paquete. Toma el id de una estacion que se quieren leer los datos (como primer argumento) y una ruta de archivo (segundo argumento) para descargar los datos en esa ruta, en caso de que aún no esten descargados allí, y leerlos. Devuelve un conjunto de datos (.csv) de esa estacion específica.
 }
 \examples{
-descargar_leer_estaciones("NH0472", "../estacion2")
+# Ejemplo de uso (no se ejecuta en este entorno, se debe usar ruta compatible con computadora)
+# descargar_leer_estaciones("NH0472", "ruta_archivo.csv")
 }

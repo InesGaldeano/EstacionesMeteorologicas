@@ -1,7 +1,7 @@
 
 #' Gráfico de la temperatura abrigo 150cm mensual
 #'
-#'#' Esta función crea un gráfico de líneas que muestra la temperatura abrigo 150 cm promedio
+#' Esta función crea un gráfico de líneas que muestra la temperatura abrigo 150 cm promedio
 #' mensual registrada por cada estación meteorológica. A partir del un conjunto
 #' de datos (primer argumento) calcula el promedio de temperatura por mes y genera
 #' una visualización comparando las estaciones, en caso de haber más de una, con distintos colores.
@@ -16,36 +16,36 @@
 #' @export
 #'
 #' @examples
-#' grafico_temperatura_mensual(estaciones, c('red', 'blue'), "Grafico temperatura mensual por estacion")
+#' estaciones <- data.frame(
+#'   id = c("NH0910", "NH0910"),
+#'   fecha = as.Date(c("2020-01-01", "2020-02-01")),
+#'   temperatura_abrigo_150cm = c(10, 12)
+#' )
+#' grafico_temperatura_mensual(estaciones, colores = c("red"), titulo = "Ejemplo")
 grafico_temperatura_mensual <- function(estaciones,
                                         colores,
-                                        titulo = "Temperatura") {
+                                        titulo = "Temperatura mensual") {
 
   if (!is.data.frame(estaciones)) {
     stop("El argumento estaciones debe ser un data frame o tibble con datos de estaciones.")
   }
 
-  #Calcular promedio mensual de la temperatura de abrigo por estación
   resumen_mensual <- estaciones |>
     dplyr::group_by(id, mes = lubridate::month(fecha)) |>
     dplyr::summarise(
       temp_promedio = mean(temperatura_abrigo_150cm, na.rm = TRUE), .groups = "drop"
     )
 
-  # Colores
   cantidad <- dplyr::n_distinct(resumen_mensual$id)
   estaciones_unicas <- unique(resumen_mensual$id)
 
 
-  # Si no pasaste suficientes colores, generamos colores aleatorios
   if (length(colores) < cantidad) {
     colores <- sample(colors(), cantidad)
   }
 
-  # Aseguramos que cada estación tenga un color
   names(colores) <- estaciones_unicas
 
-  # 3. Crear el gráfico
   grafico <- ggplot2::ggplot(
     resumen_mensual,
     ggplot2::aes(
@@ -60,7 +60,7 @@ grafico_temperatura_mensual <- function(estaciones,
       title = titulo,
       x = "Mes",
       y = "Temperatura promedio abrigo 150 cm",
-      color = "Estación"
+      color = "Estacion"
     ) +
     ggplot2::scale_color_manual(values = colores)
   return(grafico)

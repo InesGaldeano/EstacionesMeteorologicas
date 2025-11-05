@@ -8,7 +8,13 @@
 #' @export
 #'
 #' @examples
-#' tabla_resumen_temperatura(estacionNH0472)
+#' df <- data.frame(
+#'   id = c("NH0910", "NH0910"),
+#'   temperatura_abrigo_150cm = c(10, 12),
+#'   temperatura_abrigo_150cm_maxima = c(15, 14),
+#'   temperatura_abrigo_150cm_minima = c(8, 9)
+#' )
+#' tabla_resumen_temperatura(df)
 tabla_resumen_temperatura <- function(estacion) {
   if (!is.data.frame(estacion)) {
     stop("El argumento estacion debe ser un data.frame o tibble con los datos de las estaciones.")

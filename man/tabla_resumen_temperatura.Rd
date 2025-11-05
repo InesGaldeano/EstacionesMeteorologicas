@@ -16,5 +16,11 @@ tabla resumen
 Esta funcion toma un conjunto de datos con datos de una o más estaciones, y devuelve una tabla con datos sobre la temperatura abrigo 150 cm de esa/as estacion/es (el promedio, desvio estandar, temperatura máxima, y temperatura mínima)
 }
 \examples{
-tabla_resumen_temperatura(estacion1)
+df <- data.frame(
+  id = c("NH0910", "NH0910"),
+  temperatura_abrigo_150cm = c(10, 12),
+  temperatura_abrigo_150cm_maxima = c(15, 14),
+  temperatura_abrigo_150cm_minima = c(8, 9)
+)
+tabla_resumen_temperatura(df)
 }
