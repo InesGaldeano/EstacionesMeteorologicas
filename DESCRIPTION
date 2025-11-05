@@ -21,7 +21,14 @@ BugReports: https://github.com/InesGaldeano/EstacionesMeteorologicas/issues
 Depends: 
     R (>= 3.5)
 LazyData: true
+Imports:
+    dplyr,
+    ggplot2,
+    readr,
+    lubridate,
+    cli
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    pkgdown
 VignetteBuilder: knitr
