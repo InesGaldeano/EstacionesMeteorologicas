@@ -67,13 +67,15 @@ grafico_temperatura_mensual(estacion1, c("blue"), "Temperatura promedio mensual"
 **Descargar datos de varias estaciones**
 
 ```{r}
-est1 <- descargar_leer_estaciones("NH0472", "../estacionNH0472.csv") est2 <- descargar_leer_estaciones("NH0910", "../estacionNH0910.csv")
+est1 <- descargar_leer_estaciones("NH0472", "../estacionNH0472.csv") 
+est2 <- descargar_leer_estaciones("NH0910", "../estacionNH0910.csv")
 ```
 
 **Combinar y resumir**
 
 ```{r}
-todas <- dplyr::bind_rows(est1, est2) tabla_resumen_temperatura(todas)
+todas <- dplyr::bind_rows(est1, est2)
+tabla_resumen_temperatura(todas)
 ```
 
 **Graficar**
