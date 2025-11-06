@@ -14,7 +14,7 @@
 #'
 #' @returns Un gráfico de lineas
 #' @export
-#'
+#' @importFrom grDevices colors
 #' @examples
 #' estaciones <- data.frame(
 #'   id = c("NH0910", "NH0910"),

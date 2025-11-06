@@ -9,3 +9,6 @@
 ^data_raw/.*
 
 ^LICENSE\.md$
+^estacionNH0046.csv$
+^estacionNH0472.csv$
+^estacionNH0910.csv$

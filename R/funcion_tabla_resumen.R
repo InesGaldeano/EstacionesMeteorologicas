@@ -6,7 +6,7 @@
 #'
 #' @returns tabla resumen
 #' @export
-#'
+#' @importFrom stats sd
 #' @examples
 #' df <- data.frame(
 #'   id = c("NH0910", "NH0910"),

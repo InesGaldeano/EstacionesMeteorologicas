@@ -7,7 +7,7 @@
 #' @returns
 #' Un conjunto de datos
 #' @export
-#'
+#' @importFrom utils download.file
 #' @examples
 #' # Ejemplo de uso (no se ejecuta en este entorno, se debe usar ruta compatible con computadora)
 #' # descargar_leer_estaciones("NH0472", "ruta_archivo.csv")

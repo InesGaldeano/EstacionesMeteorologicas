@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-
+[![R-CMD-check](https://github.com/maitegomezgarin/EstacionesMeteorologicas/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/maitegomezgarin/EstacionesMeteorologicas/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 El objetivo de este paquete es analizar datos de estaciones meteorologicas, resumiendo y presentadolos.
@@ -40,7 +40,7 @@ Se debe cargar el paquete con el siguente código.
 library(EstacionesMeteorologicas)
 ```
 
-## Funciones principales 
+## Funciones principales
 
 El paquete incluye tres funciones principales:
 
@@ -62,7 +62,7 @@ grafico_temperatura_mensual() Genera un gráfico de líneas con la temperatura p
 grafico_temperatura_mensual(estacion1, c("blue"), "Temperatura promedio mensual")
 ```
 
-## Ejemplo de uso completo 
+## Ejemplo de uso completo
 
 **Descargar datos de varias estaciones**
 
@@ -84,7 +84,7 @@ tabla_resumen_temperatura(todas)
 grafico_temperatura_mensual(todas, c("red", "blue"), "Comparación de estaciones")
 ```
 
-## Créditos 
+## Créditos
 
 Datos meteorológicos obtenidos del Instituto Nacional de Tecnología Agropecuaria (INTA) – Sistema de Información y Gestión Agropecuaria (SIGA).
 
