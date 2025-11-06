@@ -7,6 +7,8 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![R-CMD-check](https://github.com/maitegomezgarin/EstacionesMeteorologicas/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/maitegomezgarin/EstacionesMeteorologicas/actions/workflows/check-standard.yaml)
+[![test-coverage](https://github.com/maitegomezgarin/EstacionesMeteorologicas/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/maitegomezgarin/EstacionesMeteorologicas/actions/workflows/test-coverage.yaml)
 
 <!-- badges: end -->
 
@@ -131,6 +133,16 @@ grafico_temperatura_mensual(todas, c("red", "blue"), "Comparación de estaciones
 Datos meteorológicos obtenidos del Instituto Nacional de Tecnología
 Agropecuaria (INTA) – Sistema de Información y Gestión Agropecuaria
 (SIGA).
+
+## Licencia
+
+Este paquete se distribuye bajo la licencia [MIT](LICENSE.md).
+
+## Cómo contribuir
+
+Si querés proponer cambios o mejoras, consultá la [guía para
+contribuir](.github/CONTRIBUTING.md)  
+y leé el [Código de Conducta](CODE_OF_CONDUCT.md).
 
 # Autores del paquete: Inés Galdeano y Maite Gómez Garín.
 
