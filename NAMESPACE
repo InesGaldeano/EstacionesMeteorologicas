@@ -3,6 +3,3 @@
 export(descargar_leer_estaciones)
 export(grafico_temperatura_mensual)
 export(tabla_resumen_temperatura)
-importFrom(grDevices,colors)
-importFrom(stats,sd)
-importFrom(utils,download.file)

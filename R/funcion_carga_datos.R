@@ -7,7 +7,6 @@
 #' @returns
 #' Un conjunto de datos
 #' @export
-#' @importFrom utils download.file
 #' @examples
 #' # Ejemplo de uso (no se ejecuta en este entorno, se debe usar ruta compatible con computadora)
 #' # descargar_leer_estaciones("NH0472", "ruta_archivo.csv")
@@ -41,7 +40,7 @@ descargar_leer_estaciones <- function(id_estacion, ruta_archivo) {
       ">" = "Se descargaron datos de la estacion {id_estacion}",
       "i" = "Se guardaron en {ruta_archivo}."
     ))
-    download.file(url= url_archivo, destfile = ruta_archivo)
+    utils::download.file(url= url_archivo, destfile = ruta_archivo)
 
     cli::cli_inform(c(
       "v" = "Descarga completa.",

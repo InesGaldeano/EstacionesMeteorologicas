@@ -14,7 +14,6 @@
 #'
 #' @returns Un gráfico de lineas
 #' @export
-#' @importFrom grDevices colors
 #' @examples
 #' estaciones <- data.frame(
 #'   id = c("NH0910", "NH0910"),
@@ -41,7 +40,7 @@ grafico_temperatura_mensual <- function(estaciones,
 
 
   if (length(colores) < cantidad) {
-    colores <- sample(colors(), cantidad)
+    colores <- sample(grDevices::colors(), cantidad)
   }
 
   names(colores) <- estaciones_unicas
