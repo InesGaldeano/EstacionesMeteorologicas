@@ -7,7 +7,9 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+
 [![R-CMD-check](https://github.com/maitegomezgarin/EstacionesMeteorologicas/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/maitegomezgarin/EstacionesMeteorologicas/actions/workflows/check-standard.yaml)
+
 [![test-coverage](https://github.com/maitegomezgarin/EstacionesMeteorologicas/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/maitegomezgarin/EstacionesMeteorologicas/actions/workflows/test-coverage.yaml)
 
 <!-- badges: end -->
@@ -41,8 +43,10 @@ una estación específica del INTA.
 
 ``` r
  estacion1 <- descargar_leer_estaciones("NH0472", "../estacionNH0472.csv")
-#> ✔ El archivo ya existía en ../estacionNH0472.csv.
-#> ℹ Leyendo datos de la estación NH0472
+#> → Se descargaron datos de la estación NH0472
+#> ℹ Se guardaron en ../estacionNH0472.csv.
+#> ✔ Descarga completa.
+#> ℹ Leyendo datos desde ../estacionNH0472.csv...
 #> Rows: 20425 Columns: 35
 #> ── Column specification ────────────────────────────────────────────────────────
 #> Delimiter: ","
@@ -94,8 +98,10 @@ est1 <- descargar_leer_estaciones("NH0472", "../estacionNH0472.csv")
 #> ℹ Use `spec()` to retrieve the full column specification for this data.
 #> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 est2 <- descargar_leer_estaciones("NH0910", "../estacionNH0910.csv")
-#> ✔ El archivo ya existía en ../estacionNH0910.csv.
-#> ℹ Leyendo datos de la estación NH0910
+#> → Se descargaron datos de la estación NH0910
+#> ℹ Se guardaron en ../estacionNH0910.csv.
+#> ✔ Descarga completa.
+#> ℹ Leyendo datos desde ../estacionNH0910.csv...
 #> Rows: 15553 Columns: 35
 #> ── Column specification ────────────────────────────────────────────────────────
 #> Delimiter: ","
