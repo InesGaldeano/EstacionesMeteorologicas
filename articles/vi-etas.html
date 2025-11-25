@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Estaciones Meteorólogicas • EstacionesMeteorologicas</title>
+<title> • EstacionesMeteorologicas</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Estaciones Meteorólogicas">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -33,7 +33,7 @@
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="../articles/vi-etas.html">Estaciones Meteorólogicas</a></li>
+<li><a class="dropdown-item" href="../articles/vi-etas.html">UNKNOWN TITLE</a></li>
   </ul>
 </li>
       </ul>
@@ -54,8 +54,7 @@
 
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-
-      <h1>Estaciones Meteorólogicas</h1>
+      <img src="../logo.png" class="logo" alt=""><h1></h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/InesGaldeano/EstacionesMeteorologicas/blob/main/vignettes/vi-etas.Rmd" class="external-link"><code>vignettes/vi-etas.Rmd</code></a></small>
@@ -64,88 +63,55 @@
 
     
     
-<p>Introducción</p>
-<p>En esta viñeta se muestra cómo usar las funciones del paquete para
-trabajar con los datos meteorológicos del INTA – SIGA. El paquete
-incluye funciones para descargar datos de distintas estaciones, generar
-resúmenes de temperatura y graficar resultados.</p>
-<p>Las tres funciones principales son:</p>
-<p>descargar_leer_estaciones()</p>
-<p>tabla_resumen_temperatura()</p>
-<p>grafico_temperatura_mensual()</p>
-<p>Instalación del paquete</p>
-<p>Antes de poder ejecutar el código de esta viñeta, es necesario
-instalar el paquete que estamos desarrollando en tu computadora.</p>
-<p>Cargar el paquete</p>
-<p>Una vez instalado, cargalo con:</p>
+<p>title: “EstacionesMeteorologicas” output: rmarkdown::html_vignette
+vignette: &gt; % % % editor_options: markdown: wrap: 72 —</p>
+<div class="section level2">
+<h2 id="introducción">Introducción<a class="anchor" aria-label="anchor" href="#introducci%C3%B3n"></a>
+</h2>
+<p>El paquete EstacionesMeteorologicas permite descargar, leer, procesar
+y visualizar datos meteorológicos provenientes del repositorio educativo
+del proyecto rse-r/intro-programacion.</p>
+<p>A través de este paquete es posible: obtener automáticamente los
+datos de una estación meteorológica, generar resúmenes estadísticos,
+unir datos de múltiples estaciones, y visualizar la temperatura mensual
+promedio de forma sencilla.</p>
+<p>Esta viñeta muestra el flujo de trabajo completo recomendado para
+usar el paquete.</p>
+</div>
+<div class="section level2">
+<h2 id="instalación">Instalación<a class="anchor" aria-label="anchor" href="#instalaci%C3%B3n"></a>
+</h2>
+<p>Instalá la versión de desarrollo desde GitHub:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/InesGaldeano/EstacionesMeteorologicas" class="external-link">EstacionesMeteorologicas</a></span><span class="op">)</span></span></code></pre></div>
-<p>Descargar y leer datos de una estación</p>
-<p>La función descargar_leer_estaciones() sirve para descargar y leer
-los datos meteorológicos de una estación del INTA.</p>
-<p>Primer argumento: el código (id) de la estación, por ejemplo
-“NH0472”.</p>
-<p>Segundo argumento: la ruta o carpeta donde se guardarán los datos
-(por ejemplo “datos/estacionNH0472.csv”).</p>
-<p>Descargar y leer los datos de la estación NH0472</p>
+<code class="sourceCode R"><span><span class="co">#  Instalar paquete devtools si no esta instalado</span></span>
+<span><span class="co">#install.packages("devtools") </span></span>
+<span></span>
+<span><span class="co"># devtools::install_github("InesGaldeano/EstacionesMeteorologicas")</span></span></code></pre></div>
+<p>Luego cargá el paquete:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">estacion1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/descargar_leer_estaciones.html">descargar_leer_estaciones</a></span><span class="op">(</span><span class="st">"NH0472"</span>, <span class="st">"../estacionNH0472.csv"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; → Se descargaron datos de la estacion NH0472</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Se guardaron en ../estacionNH0472.csv.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Descarga completa.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Leyendo datos desde ../estacionNH0472.csv...</span></span>
-<span><span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">20425</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">35</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span></span>
-<span><span class="co">#&gt; <span style="font-weight: bold;">Delimiter:</span> ","</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">chr</span>   (1): id</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">dbl</span>  (18): temperatura_abrigo_150cm, temperatura_abrigo_150cm_maxima, temper...</span></span>
-<span><span class="co">#&gt; <span style="color: #BBBB00;">lgl</span>  (15): temperatura_suelo_5cm_media, temperatura_suelo_10cm_media, temper...</span></span>
-<span><span class="co">#&gt; <span style="color: #0000BB;">date</span>  (1): fecha</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span></code></pre></div>
-<p>Si el archivo ya está guardado en esa ruta, la función no lo vuelve a
-descargar; simplemente lo lee desde el archivo existente. El resultado
-es un conjunto de datos (data frame o tibble) con las variables
-meteorológicas medidas en esa estación.</p>
-<p>Crear una tabla resumen de temperatura</p>
-<p>Una vez que tenemos los datos, podemos generar un resumen estadístico
-de la temperatura con tabla_resumen_temperatura().</p>
-<p>Esta función calcula, para cada estación:</p>
-<p>Promedio de la temperatura a 150 cm</p>
-<p>Desvío estándar</p>
-<p>Temperatura máxima</p>
-<p>Temperatura mínima</p>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/InesGaldeano/EstacionesMeteorologicas" class="external-link">EstacionesMeteorologicas</a></span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="funciones">Funciones<a class="anchor" aria-label="anchor" href="#funciones"></a>
+</h2>
+<div class="section level3">
+<h3 id="descargar-y-leer-datos-de-una-estación">Descargar y leer datos de una estación<a class="anchor" aria-label="anchor" href="#descargar-y-leer-datos-de-una-estaci%C3%B3n"></a>
+</h3>
+<p>La función descargar_leer_estaciones() obtiene los datos crudos
+correspondientes a una estación identificada por su código (por ejemplo
+“NH0472”).</p>
+<p><strong>¿Cómo funciona?</strong></p>
+<p>Construye automáticamente la URL del archivo CSV alojado en
+GitHub:</p>
+<p><a href="https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/" class="external-link uri">https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/</a><id>.csv</id></p>
+<p>Si el archivo existe en ruta_archivo, no lo descarga: simplemente lo
+lee.</p>
+<p>Si el archivo no existe, se descarga y guarda en esa ruta.</p>
+<p>Finalmente, el archivo se lee como un tibble.</p>
+<p>Ejemplo: cargar los datos de la estación NH0472</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">resumen_temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tabla_resumen_temperatura.html">tabla_resumen_temperatura</a></span><span class="op">(</span><span class="va">estacion1</span><span class="op">)</span></span>
-<span><span class="va">resumen_temp</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 5</span></span></span>
-<span><span class="co">#&gt;   id     promedio_temperatura desvio_estandar temp_max temp_min</span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> NH0472                 18.0            5.94     42.1       -<span style="color: #BB0000;">8</span></span></span></code></pre></div>
-<p>El resultado es una tabla que muestra estas medidas resumidas. Esto
-permite tener una idea rápida del comportamiento térmico de la estación
-a lo largo del tiempo.</p>
-<p>Graficar la temperatura mensual promedio</p>
-<p>La función grafico_temperatura_mensual() permite visualizar las
-temperaturas promedio mensuales de una o varias estaciones.</p>
-<p>Argumento 1: el conjunto de datos de las estaciones.</p>
-<p>Argumento 2: un vector con los colores a usar en el gráfico.</p>
-<p>Argumento 3 (opcional): un título para el gráfico.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/grafico_temperatura_mensual.html">grafico_temperatura_mensual</a></span><span class="op">(</span><span class="va">estacion1</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red"</span><span class="op">)</span>, <span class="st">"Temperatura mensual promedio - Estación NH0472"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="vi-etas_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
-<p>Si no se indican suficientes colores para todas las estaciones, la
-función asigna colores aleatorios automáticamente. El resultado es un
-gráfico de líneas que muestra cómo varía la temperatura promedio por
-mes.</p>
-<p>Ejemplo completo con varias estaciones</p>
-<p>Podemos combinar todo el flujo anterior para comparar distintas
-estaciones.</p>
-<p>Descargar los datos de tres estaciones distintas</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">est1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/descargar_leer_estaciones.html">descargar_leer_estaciones</a></span><span class="op">(</span><span class="st">"NH0472"</span>, <span class="st">"../estacionNH0472.csv"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> El archivo ya existia en ../estacionNH0472.csv.</span></span>
+<code class="sourceCode R"><span><span class="va">estacion1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/descargar_leer_estaciones.html">descargar_leer_estaciones</a></span><span class="op">(</span> <span class="st">"NH0472"</span>, <span class="st">"estacionNH0472.csv"</span> <span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> El archivo ya existia en estacionNH0472.csv.</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Leyendo datos de la estacion NH0472</span></span>
 <span><span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">20425</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">35</span></span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span></span>
@@ -156,59 +122,93 @@ estaciones.</p>
 <span><span class="co">#&gt; <span style="color: #0000BB;">date</span>  (1): fecha</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
-<span><span class="va">est2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/descargar_leer_estaciones.html">descargar_leer_estaciones</a></span><span class="op">(</span><span class="st">"NH0910"</span>, <span class="st">"../estacionNH0910.csv"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; → Se descargaron datos de la estacion NH0910</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Se guardaron en ../estacionNH0910.csv.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Descarga completa.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Leyendo datos desde ../estacionNH0910.csv...</span></span>
-<span><span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">15553</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">35</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span></span>
-<span><span class="co">#&gt; <span style="font-weight: bold;">Delimiter:</span> ","</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">chr</span>   (1): id</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">dbl</span>   (5): temperatura_abrigo_150cm, temperatura_abrigo_150cm_maxima, temper...</span></span>
-<span><span class="co">#&gt; <span style="color: #BBBB00;">lgl</span>  (28): temperatura_intemperie_5cm_minima, temperatura_intemperie_50cm_mi...</span></span>
-<span><span class="co">#&gt; <span style="color: #0000BB;">date</span>  (1): fecha</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span>
-<span><span class="va">est3</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/descargar_leer_estaciones.html">descargar_leer_estaciones</a></span><span class="op">(</span><span class="st">"NH0046"</span>, <span class="st">"../estacionNH0046.csv"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; → Se descargaron datos de la estacion NH0046</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Se guardaron en ../estacionNH0046.csv.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Descarga completa.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Leyendo datos desde ../estacionNH0046.csv...</span></span>
-<span><span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">17041</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">35</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span></span>
-<span><span class="co">#&gt; <span style="font-weight: bold;">Delimiter:</span> ","</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">chr</span>   (2): id, direccion_viento_1000cm</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">dbl</span>  (24): temperatura_abrigo_150cm, temperatura_abrigo_150cm_maxima, temper...</span></span>
-<span><span class="co">#&gt; <span style="color: #BBBB00;">lgl</span>   (8): temperatura_inte_5cm, temperatura_intemperie_150cm_minima, humeda...</span></span>
-<span><span class="co">#&gt; <span style="color: #0000BB;">date</span>  (1): fecha</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span></code></pre></div>
-<p>Unir los datos en un solo tibble</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">todas_estaciones</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html" class="external-link">bind_rows</a></span><span class="op">(</span><span class="va">est1</span>, <span class="va">est2</span>, <span class="va">est3</span><span class="op">)</span></span></code></pre></div>
-<p>Crear un resumen</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">resumen_todas</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tabla_resumen_temperatura.html">tabla_resumen_temperatura</a></span><span class="op">(</span><span class="va">todas_estaciones</span><span class="op">)</span></span>
-<span><span class="va">resumen_todas</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3 × 5</span></span></span>
+<p>El resultado es un conjunto de datos con 20.425 filas y 35
+columnas.</p>
+<p><strong>¿Qué variables incluye el dataset?</strong></p>
+<p>Todas las estaciones cuentan con variables esenciales como:</p>
+<ul>
+<li><p>id: código de la estación</p></li>
+<li><p>fecha: fecha de la medición</p></li>
+<li><p>temperatura_abrigo_150cm: temperatura media diaria a 150
+cm</p></li>
+<li><p>temperatura_abrigo_150cm_maxima: temperatura máxima
+diaria</p></li>
+<li><p>temperatura_abrigo_150cm_minima: temperatura mínima
+diaria</p></li>
+<li><p>Además, se incluyen otras variables meteorológicas cuando están
+disponibles:</p></li>
+<li><p>precipitacion_pluviometrica: precipitación en mm</p></li>
+<li><p>granizo, nieve: indicadores de fenómenos extremos</p></li>
+<li><p>heliofania_efectiva, heliofania_relativa: horas de sol</p></li>
+<li><p>rocio_medio: punto de rocío</p></li>
+<li><p>velocidad_viento_200cm_media, velocidad_viento_1000cm_media:
+velocidad del viento</p></li>
+<li><p>radiacion_global: radiación solar</p></li>
+<li><p>evapotranspiracion_potencial: pérdida de agua por evaporación y
+transpiración</p></li>
+</ul>
+<p>Nota: Muchas variables pueden contener valores faltantes porque no
+todas las estaciones miden la misma información.</p>
+</div>
+<div class="section level3">
+<h3 id="crear-una-tabla-resumen-de-temperatura">Crear una tabla resumen de temperatura<a class="anchor" aria-label="anchor" href="#crear-una-tabla-resumen-de-temperatura"></a>
+</h3>
+<p>La función tabla_resumen_temperatura() permite obtener un resumen
+estadístico básico de la temperatura:</p>
+<ul>
+<li><p>promedio,</p></li>
+<li><p>desvío estándar,</p></li>
+<li><p>valor máximo,</p></li>
+<li><p>valor mínimo.</p></li>
+</ul>
+<p>Ejemplo:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">resumen_temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/tabla_resumen_temperatura.html">tabla_resumen_temperatura</a></span><span class="op">(</span><span class="va">estacion1</span><span class="op">)</span> </span>
+<span><span class="va">resumen_temp</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 5</span></span></span>
 <span><span class="co">#&gt;   id     promedio_temperatura desvio_estandar temp_max temp_min</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> NH0046                 17.3            5.90     41.5    -<span style="color: #BB0000;">15</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> NH0472                 18.0            5.94     42.1     -<span style="color: #BB0000;">8</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> NH0910                 17.7            6.12     43       -<span style="color: #BB0000;">8.5</span></span></span></code></pre></div>
-<p>Graficar las temperaturas mensuales</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/grafico_temperatura_mensual.html">grafico_temperatura_mensual</a></span><span class="op">(</span><span class="va">todas_estaciones</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"blue"</span>, <span class="st">"red"</span>, <span class="st">"green"</span><span class="op">)</span>,<span class="st">"Temperaturas mensuales por estación"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="vi-etas_files/figure-html/unnamed-chunk-9-1.png" width="700"></p>
-<p>Este flujo completo permite:</p>
-<p>Descargar los datos automáticamente.</p>
-<p>Analizarlos con un resumen estadístico.</p>
-<p>Visualizarlos de manera clara con un gráfico.</p>
-  </main>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> NH0472                 18.0            5.94     42.1       -<span style="color: #BB0000;">8</span></span></span></code></pre></div>
+<p>Esto facilita visualizar rápidamente el comportamiento térmico de la
+estación.</p>
+</div>
+<div class="section level3">
+<h3 id="graficar-la-temperatura-mensual-promedio">Graficar la temperatura mensual promedio<a class="anchor" aria-label="anchor" href="#graficar-la-temperatura-mensual-promedio"></a>
+</h3>
+<p>La función grafico_temperatura_mensual() calcula el promedio mensual
+de temperatura para cada estación y lo representa mediante un gráfico de
+líneas.</p>
+<p>Argumentos:</p>
+<ul>
+<li><p>datos: tibble con una o varias estaciones</p></li>
+<li><p>colores: vector de colores a usar en la gráfica</p></li>
+<li><p>titulo: texto opcional</p></li>
+</ul>
+<p>Si no se proporcionan suficientes colores, el paquete asigna colores
+aleatorios.</p>
+<p>Ejemplo:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/grafico_temperatura_mensual.html">grafico_temperatura_mensual</a></span><span class="op">(</span> <span class="va">estacion1</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red"</span><span class="op">)</span>, <span class="st">"Temperatura mensual promedio - Estación NH0472"</span> <span class="op">)</span></span></code></pre></div>
+<p><img src="vi-etas_files/figure-html/unnamed-chunk-6-1.png" class="r-plt" width="700"></p>
+</div>
+</div>
+<div class="section level2">
+<h2 id="conclusión">Conclusión<a class="anchor" aria-label="anchor" href="#conclusi%C3%B3n"></a>
+</h2>
+<p>El paquete EstacionesMeteorologicas proporciona un flujo de trabajo
+completo para:</p>
+<ul>
+<li><p>descargar datos de estaciones meteorológicas,</p></li>
+<li><p>analizarlos mediante un resumen estadístico,</p></li>
+<li><p>combinarlos cuando hay varias estaciones,</p></li>
+<li><p>y visualizarlos de manera clara mediante gráficos.</p></li>
+</ul>
+<p>De esta forma, facilita el análisis exploratorio del clima y el
+estudio de tendencias meteorológicas en Argentina.</p>
+</div>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
@@ -218,7 +218,7 @@ estaciones.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>
