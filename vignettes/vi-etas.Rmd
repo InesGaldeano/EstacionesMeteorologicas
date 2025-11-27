@@ -20,17 +20,11 @@ knitr::opts_chunk$set(
 
 ## Introducción
 
-El paquete EstacionesMeteorologicas permite descargar, leer, procesar y
-visualizar datos meteorológicos provenientes del repositorio educativo
-del proyecto rse-r/intro-programacion.
+El paquete EstacionesMeteorologicas permite descargar, leer, procesar y visualizar datos meteorológicos provenientes del repositorio educativo del proyecto rse-r/intro-programacion.
 
-A través de este paquete es posible: obtener automáticamente los datos
-de una estación meteorológica, generar resúmenes estadísticos, unir
-datos de múltiples estaciones, y visualizar la temperatura mensual
-promedio de forma sencilla.
+A través de este paquete es posible: obtener automáticamente los datos de una estación meteorológica, generar resúmenes estadísticos, unir datos de múltiples estaciones, y visualizar la temperatura mensual promedio de forma sencilla.
 
-Esta viñeta muestra el flujo de trabajo completo recomendado para usar
-el paquete.
+Esta viñeta muestra el flujo de trabajo completo recomendado para usar el paquete.
 
 ## Instalación
 
@@ -53,9 +47,7 @@ library(EstacionesMeteorologicas)
 
 ### Descargar y leer datos de una estación
 
-La función descargar_leer_estaciones() obtiene los datos crudos
-correspondientes a una estación identificada por su código (por ejemplo
-"NH0472").
+La función descargar_leer_estaciones() obtiene los datos crudos correspondientes a una estación identificada por su código (por ejemplo "NH0472").
 
 **¿Cómo funciona?**
 
@@ -63,8 +55,7 @@ Construye automáticamente la URL del archivo CSV alojado en GitHub:
 
 <https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/><ID>.csv
 
-Si el archivo existe en ruta_archivo, no lo descarga: simplemente lo
-lee.
+Si el archivo existe en ruta_archivo, no lo descarga: simplemente lo lee.
 
 Si el archivo no existe, se descarga y guarda en esa ruta.
 
@@ -92,8 +83,7 @@ Todas las estaciones cuentan con variables esenciales como:
 
 -   temperatura_abrigo_150cm_minima: temperatura mínima diaria
 
--   Además, se incluyen otras variables meteorológicas cuando están
-    disponibles:
+-   Además, se incluyen otras variables meteorológicas cuando están disponibles:
 
 -   precipitacion_pluviometrica: precipitación en mm
 
@@ -103,21 +93,17 @@ Todas las estaciones cuentan con variables esenciales como:
 
 -   rocio_medio: punto de rocío
 
--   velocidad_viento_200cm_media, velocidad_viento_1000cm_media:
-    velocidad del viento
+-   velocidad_viento_200cm_media, velocidad_viento_1000cm_media: velocidad del viento
 
 -   radiacion_global: radiación solar
 
--   evapotranspiracion_potencial: pérdida de agua por evaporación y
-    transpiración
+-   evapotranspiracion_potencial: pérdida de agua por evaporación y transpiración
 
-Nota: Muchas variables pueden contener valores faltantes porque no todas
-las estaciones miden la misma información.
+Nota: Muchas variables pueden contener valores faltantes porque no todas las estaciones miden la misma información.
 
 ### Crear una tabla resumen de temperatura
 
-La función tabla_resumen_temperatura() permite obtener un resumen
-estadístico básico de la temperatura:
+La función tabla_resumen_temperatura() permite obtener un resumen estadístico básico de la temperatura:
 
 -   promedio,
 
@@ -134,14 +120,11 @@ resumen_temp <- tabla_resumen_temperatura(estacion1)
 resumen_temp
 ```
 
-Esto facilita visualizar rápidamente el comportamiento térmico de la
-estación.
+Esto facilita visualizar rápidamente el comportamiento térmico de la estación.
 
 ### Graficar la temperatura mensual promedio
 
-La función grafico_temperatura_mensual() calcula el promedio mensual de
-temperatura para cada estación y lo representa mediante un gráfico de
-líneas.
+La función grafico_temperatura_mensual() calcula el promedio mensual de temperatura para cada estación y lo representa mediante un gráfico de líneas.
 
 Argumentos:
 
@@ -151,8 +134,7 @@ Argumentos:
 
 -   titulo: texto opcional
 
-Si no se proporcionan suficientes colores, el paquete asigna colores
-aleatorios.
+Si no se proporcionan suficientes colores, el paquete asigna colores aleatorios.
 
 Ejemplo:
 
@@ -162,8 +144,7 @@ grafico_temperatura_mensual( estacion1, c("red"), "Temperatura mensual promedio 
 
 ## Conclusión
 
-El paquete EstacionesMeteorologicas proporciona un flujo de trabajo
-completo para:
+El paquete EstacionesMeteorologicas proporciona un flujo de trabajo completo para:
 
 -   descargar datos de estaciones meteorológicas,
 
@@ -173,5 +154,4 @@ completo para:
 
 -   y visualizarlos de manera clara mediante gráficos.
 
-De esta forma, facilita el análisis exploratorio del clima y el estudio
-de tendencias meteorológicas en Argentina.
+De esta forma, facilita el análisis exploratorio del clima y el estudio de tendencias meteorológicas en Argentina.
